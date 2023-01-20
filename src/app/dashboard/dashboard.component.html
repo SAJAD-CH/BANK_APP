@@ -1,0 +1,308 @@
+<html>
+
+<div class="background-image">
+    <nav class="navbar navbar-expand-lg fixed  ">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Toggle button -->
+            -->
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse  fixed-top" id="navbarCenteredExample">
+                <!-- Left links -->
+
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item size">
+                        <!-- <button class="btn btn-outline-light m-2 hello"> -->
+                        <a role="button" (click)="hell()" class="nav-link btn btn-outline-light "
+                            style="margin-top:10px ; margin-right: 10px ;  margin-left: 405px;"><strong>HOME</strong></a>
+                        <!-- </button> -->
+                    </li>
+                    <li class="nav-item size">
+
+                        <a role="button" (click)="hello()" class="nav-link btn btn-outline-light "
+                            style="margin-top:10px ; margin-right: 10px;"><strong>DEPOSIT</strong></a>
+
+                    </li>
+                    <li class="nav-item size">
+
+                        <a role="button" (click)="hello2()" class="nav-link btn btn-outline-light "
+                            style="margin-top:10px ; margin-right:10px"><strong>WITHDRAW</strong></a>
+
+                    </li>
+
+                    <li class="nav-item size">
+
+                        <a role="button" (click)="hello3()" class="nav-link btn btn-outline-light "
+                            style="margin-top:10px ; margin-right:10px"><strong>CREDIT CARD</strong></a>
+
+                    </li>
+                    <li class="nav-item size">
+
+                        <a role="button" (click)="hello4()" class="nav-link btn btn-outline-light "
+                            style="margin-top:10px ; margin-right:10px"><strong>TRANSACTION HISTORY</strong></a>
+
+                    </li>
+                    <li class="nav-item size">
+
+                        <a role="button" class=" btn btn-danger " style="margin-top:10px ; margin-left:280px"
+                            (click)="logout()"><strong>LOGOUT</strong></a>
+
+                    </li>
+                </ul>
+
+                <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+
+    <section id="home1" class="d-flex align-items-center justify-content-center" style="height:520px ;">
+        <div class="row">
+            <div class="col-12">
+
+
+                <h1
+                    style="color:white;font-family: 'Saira Condensed', sans-serif; font-size: 70px; text-align: center;">
+                    <strong>Welcome to UK Bank</strong>
+                </h1>
+                <div
+                    style="border-style: solid; border-width:2px ; border-color:rgb(230, 254, 9); text-align: center; margin-top:100px ;">
+                    <h1 style="color: white; font-family: 'Julius Sans One', sans-serif;">{{username|uppercase}}
+                    </h1>
+                    <br>
+                    <h1 style="color: white; font-family: 'Julius Sans One', sans-serif;">Account
+                        Number:{{accountnumber}}
+                    </h1>
+                    <h1 style="color: white; font-family: 'Julius Sans One', sans-serif;">Account
+                        Balance:${{accbalance}}
+                    </h1>
+                    <h1 style="color: white; font-family: 'Julius Sans One', sans-serif;">Creditcard
+                        Balance:${{credbalance}}</h1>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </section>
+    <section>
+        <div class="row ">
+
+            <div class=" d-flex justify-content-center" style="margin-bottom:200px ;"><button class="btn btn-danger"
+                    (click)="deletebtn()">Delete your account</button></div>
+
+                    <div class="row" style="position: absolute; margin-top: 70px;">
+                        <div class="col-4"></div>
+                        <div class="col-4" style="margin-left: 120px;">
+                            <div id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+                                *ngIf="deletebutton==true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel" style="color:white ;">Are you sure you
+                                                want
+                                                to
+                                                delete </h5>
+                                           
+                                        </div>
+                                        <div class="modal-body">...</div>
+                                        <div style="margin-left: 100px;">
+                                            <button type="button" class="btn btn-secondary mx-2"
+                                                (click)="yes()">Yes</button>
+                                            <button type="button" class="btn btn-primary" (click)="no()">No</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+        </div>
+    </section>
+   
+        
+    
+
+
+
+
+
+    <section id="deposit" class="vh-100 " style="height:800px ;margin-top:30px ;">
+
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card bg-dark text-white" style="border-radius: 2rem;  ;">
+                        <div class="card-body p-5 text-center">
+                            <form (ngSubmit)="depositcheck()" [formGroup]="depositform">
+
+                                <div class="mb-md-5 mt-md-4 ">
+
+                                    <h2 class="fw-bold mb-2 text-uppercase">DEPOSIT MONEY</h2>
+                                    <p class="text-white-50 mb-5" >Please enter your name , account number and password
+                                    </p>
+
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="text " placeholder="Enter your amount " id="typeEmailX" class="form-control form-control-lg"
+                                            formControlName="amount" name="amount" />
+                                        <label class="form-label" for="typeEmailX">Amount</label>
+                                    </div>
+
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="text" placeholder="Enter your account number "  id="typePasswordX" class="form-control form-control-lg"
+                                            formControlName="acno" name="acno" />
+                                        <label class="form-label" for="typePasswordX">Account Number</label>
+                                    </div>
+
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="text" placeholder="Enter your password "  id="typePasswordX" class="form-control form-control-lg"
+                                            formControlName="pswd" name="pswd" />
+                                        <label class="form-label" for="typePasswordX">Password</label>
+                                    </div>
+
+                                    <button class="btn btn-outline-light btn-lg px-5" type="submit">Submit</button>
+
+
+
+                                </div>
+
+
+                            </form>
+                            <h6 style="color:yellow ;">{{message}}{{message1}}</h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="withdraw" class="vh-100 " style="height:800px ; margin-top:50px ;">
+
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card bg-dark text-white" style="border-radius: 2rem;">
+                        <div class="card-body p-5 text-center">
+                            <form (ngSubmit)="withdrawcheck()" [formGroup]="withdrawform">
+
+                                <div class="mb-md-5 mt-md-4 ">
+
+                                    <h2 class="fw-bold mb-2 text-uppercase">WITHDRAW MONEY</h2>
+                                    <p class="text-white-50 mb-5">Please enter your name , account number and password
+                                    </p>
+
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="text" placeholder="Enter your amount "  id="typeEmailX" class="form-control form-control-lg"
+                                            formControlName="amount" name="amount" />
+                                        <label class="form-label" for="typeEmailX">Amount</label>
+                                    </div>
+
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="text" placeholder="Enter your account number "  id="typePasswordX" class="form-control form-control-lg"
+                                            formControlName="acno" name="acno" />
+                                        <label class="form-label" for="typePasswordX">Account Number</label>
+                                    </div>
+
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="text" placeholder="Enter your password "  id="typePasswordX" class="form-control form-control-lg"
+                                            formControlName="pswd" name="pswd" />
+                                        <label class="form-label" for="typePasswordX">Password</label>
+                                    </div>
+
+                                    <button class="btn btn-outline-light btn-lg px-5" type="submit">Submit</button>
+
+
+
+                                </div>
+
+
+                            </form>
+                            <h6 style="color:yellow ;">{{message1}}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- creditcard -->
+    <section id="credit" class="vh-100 " style="height:800px ; margin-top:50px">
+
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card bg-dark text-white" style="border-radius: 2rem;">
+                        <div class="card-body p-5 text-center">
+                            <form (ngSubmit)="creditcheck()" [formGroup]="creditcardform">
+
+                                <div class="mb-md-5 mt-md-4 ">
+
+                                    <h2 class="fw-bold mb-2 text-uppercase">CREDIT CARD</h2>
+                                    <p class="text-white-50 mb-5">Please enter your Adhar Number , Pancard Number and
+                                        Password</p>
+
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="text" placeholder="Enter your adhar number" id="typeEmailX" class="form-control form-control-lg"
+                                            formControlName="adharnumber" name="adharnumber" />
+                                        <label class="form-label" for="typeEmailX">Adhar Number</label>
+                                    </div>
+
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="text" placeholder="Enter your pan number" id="typePasswordX" class="form-control form-control-lg"
+                                            formControlName="pannumber" name="pannumber" />
+                                        <label class="form-label" for="typePasswordX">Pancard number</label>
+                                    </div>
+
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="text" placeholder="Enter your password" id="typePasswordX" class="form-control form-control-lg"
+                                            formControlName="pswd" name="pswd" />
+                                        <label class="form-label" for="typePasswordX">Your Password</label>
+                                    </div>
+
+                                    <button class="btn btn-outline-light btn-lg px-5" type="submit">Submit</button>
+                                </div>
+                            </form>
+                            <h6 style="color: yellow;">{{message2}}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <table class="table table-dark" style="margin-top:110px; border: 1px solid white;">
+                    <thead>
+                        <tr>
+                            <th scope="col">AMOUNT</th>
+                            <th scope="col">TYPE</th>
+                            <th scope="col">STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of transactions">
+                            <td>{{data.amount}}</td>
+                            <td>{{data.type}}</td>
+                            <td>{{data.status}}</td>
+
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </section>
+</div>
+
+
+</html>
